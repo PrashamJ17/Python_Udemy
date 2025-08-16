@@ -19,15 +19,15 @@ def calculator(num1,num2,operation):
 calculation = True
 while calculation :
     print(calcul)
-    n1 = int(input("Enter the first number;\n"))
+    n1 = int(input("Enter the first number:\n"))
     calc = True
     while calc:
-        n2 = int(input("Enter the second number\n"))
+        n2 = int(input("Enter the second number:\n"))
         print("Enter an operation from the following:")
         op = ['+ : addition','- : subtraction','/ : division','* : multiplication']
         for i in range(0,4):
             print(op[i])
-        opn = input()
+        opn = input("-->  ")
         result1 = round(calculator(n1,n2,opn),2)
         print(f"{n1} {opn} {n2} = {result1}")
 
