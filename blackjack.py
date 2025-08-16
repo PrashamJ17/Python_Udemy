@@ -2,7 +2,6 @@ from ascii_art import bj
 from random import *
 cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
 
-
 def game():
     play = input("Do you want to play the gameof blackjack. Type 'y' or 'n':\n").lower()
     if play =='y':
@@ -92,4 +91,73 @@ def game():
             elif user_sum == 21 :
                 return print("BlackJack!! You Win !!")
             
+game()
+
+
+
+
+
+# MORE OPTIMIZED CODE BELOW : 
+from ascii_art import bj
+from random import choice, choices
+
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+def calculate_score(hand):
+    """Return the score of a hand, adjusting Aces (11 → 1) if needed."""
+    score = sum(hand)
+    while score > 21 and 11 in hand:
+        hand[hand.index(11)] = 1
+        score = sum(hand)
+    return score
+
+def game():
+    play = input("Do you want to play Blackjack? Type 'y' or 'n': ").lower()
+    if play != 'y':
+        return
+    
+    print(bj)
+
+    user_cards = choices(cards, k=2)
+    computer_cards = choices(cards, k=2)
+
+    user_sum = calculate_score(user_cards)
+    computer_sum = calculate_score(computer_cards)
+
+    print(f"Your cards: {user_cards}, current score: {user_sum}")
+    print(f"Computer's first card: {computer_cards[0]}")
+
+    # User turn
+    while user_sum < 21:
+        hit = input("Do you want to 'hit' or 'pass'?\n").lower()
+        if hit == 'hit':
+            user_cards.append(choice(cards))
+            user_sum = calculate_score(user_cards)
+            print(f"Your cards: {user_cards}, current score: {user_sum}")
+            print(f"Computer's first card: {computer_cards[0]}")
+        else:
+            break
+
+    if user_sum > 21:
+        print(f"Your cards: {user_cards}, Final score: {user_sum}")
+        print("You went over 21! You lost 😢")
+        return
+
+    # Computer turn
+    while computer_sum < 17:
+        computer_cards.append(choice(cards))
+        computer_sum = calculate_score(computer_cards)
+
+    print(f"Your final hand: {user_cards}, Final score: {user_sum}")
+    print(f"Computer's final hand: {computer_cards}, Final score: {computer_sum}")
+
+    if computer_sum > 21:
+        print("Computer went over 21! You win 🎉")
+    elif user_sum > computer_sum:
+        print("You win 🎉")
+    elif user_sum < computer_sum:
+        print("You lost 😢")
+    else:
+        print("It's a draw!")
+
 game()
