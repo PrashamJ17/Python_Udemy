@@ -1,4 +1,3 @@
-
 # print the comparision a , print vs , print comparision b 
 # take input from the user as to which has more followers a or b ?
 # compare the data of a and b from the data file - in this first you will ha ve to import the data file . 
@@ -29,8 +28,8 @@ def game():
     game_on = True
     n = 0
     score = 0
-    data_A = all_data[0]
-    while game_on : 
+    data_A = all_data[n]
+    while n + 1 < len(all_data) : # since the last n is the last data 
         data_B = all_data[n+1]
         print(f"Compare A: {data_A['name']}, {data_A['description']}, {data_A['country']}.")
         print(vs)
@@ -45,7 +44,6 @@ def game():
             n += 1
             if numB > numA :
                 data_A = data_B
-            
         else :
             return print(f"Sorry, that's wrong! Final score: {score}")
         
