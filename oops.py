@@ -97,3 +97,31 @@ timmy = Turtle() # this creates an object called timmy from the clss turtle .
 # now on the screen preview we can see that our turtle - > timy is shown as a cursor/arrow . 
 #  we can also change he shape of timmy . 
 
+
+# now to installl packages of python , libraries , 
+# you have to go to pip , pyPi site search the package and install through the terminal 
+#  to use them import into your code . 
+
+# i have downloaded a package called PrettyTable and imported down below to use it . 
+
+from prettytable import PrettyTable,TableStyle # we have accesed the class PrettyTable
+
+table = PrettyTable() # from the class of PreetyTable we have created an object called table 
+# print(table)
+
+# now we have to create a table , 
+# we will use built in methods / fns from the docs of prettytable 
+
+# add_column() -> meythod to add the coulmn name and its data by taking two args respectively
+table.add_column("Pokemon Name",["Pikachu","Squirtle","Charmander"])
+table.add_column("Type",["Electric","Water","Fire"])
+# print(table)
+
+# table's attributes
+table.align = "l" # to change the allignment of the data in the table . 
+#  we can also change the alignment of indivisual columns . 
+table.align["Pokemon Name"] = "r" # to the right
+table.align["Type"] = "c" # to the center
+table.set_style(TableStyle.DOUBLE_BORDER) # to change the style of the table we use a class called TableStyle and use its methods to change the style of the table
+
+print(table)
