@@ -53,3 +53,6 @@ for circles in range(int(360/angle)):
 my_screen = t.Screen()
 my_screen.exitonclick()
 
+# tuples - > list in brackets -> ( )
+# the data in tuples can't be modified / chaanges --> immutable
+# the lists are mutable , the lemenets in the list can be changed . 
