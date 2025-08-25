@@ -38,7 +38,7 @@ while game :
         x_coord = snake_blocks[i-1].xcor()
         y_coord = snake_blocks[i-1].ycor()
         snake_blocks[i].goto(x_coord,y_coord)
-    # snake_blocks[0].left(90)
+    snake_blocks[0].left(90)
     snake_blocks[0].forward(20)
 screen.exitonclick()
 
